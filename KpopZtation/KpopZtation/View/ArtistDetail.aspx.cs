@@ -11,7 +11,7 @@ namespace KpopZtation.View
 {
     public partial class ArtistDetail : System.Web.UI.Page
     {
-        protected static bool isAdmin = false;
+        protected bool isAdmin = false;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -27,7 +27,7 @@ namespace KpopZtation.View
                     {
                         isAdmin = true;
                         insertAlbumButton.Visible = true;
-                    } 
+                    }
                 }
             
                 String artistId = Request["ArtistId"];

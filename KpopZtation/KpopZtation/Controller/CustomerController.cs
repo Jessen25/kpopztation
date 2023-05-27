@@ -64,16 +64,8 @@ namespace KpopZtation.Controller
 
         public static bool ValidateAlphanumeric(String pass)
         {
-            Regex regex = new Regex("^[a-zA-Z0-9]+$");
+            Regex regex = new Regex("(?=.*[a-zA-Z])(?=.*[0-9])");
             return regex.IsMatch(pass);
-        }
-        public static String getName(String email, String pass)
-        {
-            return CustomerHandler.getData(email, pass).CustomerName;
-        }
-        public static String getRole(String email, String pass)
-        {
-            return CustomerHandler.getData(email, pass).CustomerRole;
         }
 
         public static Customer getData(String email, String pass)
@@ -83,13 +75,6 @@ namespace KpopZtation.Controller
 
         public static String loginStatus(String email, String pass)
         {
-            //String user_email = CustomerHandler.getData(email, pass).CustomerEmail;
-            //String user_pass = CustomerHandler.getData(email, pass).CustomerPassword;
-
-            //if(!email.Equals(user_email) || !pass.Equals(user_pass))
-            //{
-            //    return "Email or Password is incorrect !";
-            //}
 
             Customer customer = CustomerHandler.getData(email, pass);
 

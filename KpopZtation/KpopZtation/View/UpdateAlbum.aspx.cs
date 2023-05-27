@@ -12,22 +12,20 @@ namespace KpopZtation.View
 {
     public partial class UpdateAlbum : System.Web.UI.Page
     {
-        private static String artistId;
+        private static Album albumBeforeUpdate;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Debug.WriteLine("I AM HERE");
             if (!Page.IsPostBack)
             {
                 String albumId = Request["AlbumId"];
-                Album album = AlbumController.getAlbumById(albumId);
+                albumBeforeUpdate = AlbumController.getAlbumById(albumId);
 
-                albumNameBox.Text = album.AlbumName;
-                albumDescriptionBox.Text = album.AlbumDescription;
-                albumPriceBox.Text = album.AlbumPrice.ToString();
-                albumStockBox.Text = album.AlbumStock.ToString();
-                albumImage.ImageUrl = album.AlbumImage;
-                artistId = album.ArtistId.ToString();
+                albumNameBox.Text = albumBeforeUpdate.AlbumName;
+                albumDescriptionBox.Text = albumBeforeUpdate.AlbumDescription;
+                albumPriceBox.Text = albumBeforeUpdate.AlbumPrice.ToString();
+                albumStockBox.Text = albumBeforeUpdate.AlbumStock.ToString();
+                albumImage.ImageUrl = albumBeforeUpdate.AlbumImage;
             }
         }
 
@@ -41,12 +39,12 @@ namespace KpopZtation.View
 
             HttpPostedFile albumImage = albumImageUpload.PostedFile;
 
-            String warningText = AlbumController.updateAlbum(artistId, albumId, albumName, albumDescription, albumPrice, albumStock, albumImage);
+            String warningText = AlbumController.updateAlbum(albumBeforeUpdate, albumId, albumName, albumDescription, albumPrice, albumStock, albumImage);
             warningLabel.Text = warningText;
 
             if (warningLabel.Text.Equals("Update Success!"))
             {
-                Response.Redirect("~/View/ArtistDetail.aspx?ArtistId=" + artistId);
+                Response.Redirect("~/View/ArtistDetail.aspx?ArtistId=" + albumBeforeUpdate.ArtistId);
             }
         }
     }

@@ -15,8 +15,9 @@ namespace KpopZtation.Controller
             return AlbumHandler.getAllAlbums(id);
         }
 
-        public static String validateAlbum(String artistId, String albumName, String albumDescription, String albumPrice, String albumStock, HttpPostedFile albumImage)
+        public static String createAlbum(String artistId, String albumName, String albumDescription, String albumPrice, String albumStock, HttpPostedFile albumImage)
         {
+
             if (albumName.Equals("") || albumDescription.Equals("") || albumPrice.Equals("") || albumStock.Equals("") || albumImage.ContentLength == 0)
             {
                 return "All fields must be filled!";
@@ -71,39 +72,67 @@ namespace KpopZtation.Controller
                 return "File must be lower than 2MB";
             }
 
-            return "Album Valid";
-        }
-
-        public static String createAlbum(String artistId, String albumName, String albumDescription, String albumPrice, String albumStock, HttpPostedFile albumImage)
-        {
-
-            String message = validateAlbum(artistId, albumName, albumDescription, albumPrice, albumStock, albumImage);
-
-            if (message != "Album Valid")
-            {
-                return message;
-            }
-
-            int newAlbumPriceFormat = int.Parse(albumPrice);
-            int newAlbumStockFormat = int.Parse(albumStock);
-
             String fileName = "~/Assets/Albums/" + albumImage.FileName;
             AlbumHandler.createAlbum(artistId, albumName, albumDescription, newAlbumPriceFormat, newAlbumStockFormat, fileName);
             return "Insert Successful!";
         }
 
-        public static String updateAlbum(String artistId, String albumId, String albumName, String albumDescription, String albumPrice, String albumStock, HttpPostedFile albumImage)
+        public static String updateAlbum(Album albumBeforeUpdate, String albumId, String albumName, String albumDescription, String albumPrice, String albumStock, HttpPostedFile albumImage)
         {
 
-            String message = validateAlbum(artistId, albumName, albumDescription, albumPrice, albumStock, albumImage);
-
-            if (message != "Album Valid")
+            if (albumName.Equals("") || albumDescription.Equals("") || albumPrice.Equals("") || albumStock.Equals("") || albumImage.ContentLength == 0)
             {
-                return message;
+                return "All fields must be filled!";
             }
 
-            int newAlbumPriceFormat = int.Parse(albumPrice);
-            int newAlbumStockFormat = int.Parse(albumStock);
+            if (albumName.Length > 50)
+            {
+                return "Name length must not exceed 50 characters!";
+            }
+
+            if (AlbumHandler.isAlbumNameUnique(albumName, albumBeforeUpdate.ArtistId.ToString()).Equals(true) && albumName != albumBeforeUpdate.AlbumName)
+            {
+                return "Name must be unique!";
+            }
+
+            if (albumDescription.Length > 255)
+            {
+                return "Description length must not exceed 255 characters!";
+            }
+
+            int newAlbumPriceFormat;
+
+            if (!int.TryParse(albumPrice, out newAlbumPriceFormat))
+            {
+                return "Invalid price!";
+            }
+
+            if (newAlbumPriceFormat < 100000 || newAlbumPriceFormat > 1000000)
+            {
+                return "Price must be between 100000 and 1000000!";
+            }
+
+            int newAlbumStockFormat;
+
+            if (!int.TryParse(albumStock, out newAlbumStockFormat))
+            {
+                return "Invalid stock!";
+            }
+
+            if (newAlbumStockFormat < 1)
+            {
+                return "Price must be more than 0!";
+            }
+
+            if (!(albumImage.FileName.EndsWith(".jpg") || albumImage.FileName.EndsWith(".jpeg") || albumImage.FileName.EndsWith(".png") || albumImage.FileName.EndsWith(".jfif")))
+            {
+                return "Extentions must be .jpg or .jpeg or .png or .jfif";
+            }
+
+            if (albumImage.ContentLength > 2000000)
+            {
+                return "File must be lower than 2MB";
+            }
 
             String fileName = "~/Assets/Albums/" + albumImage.FileName;
             AlbumHandler.updateAlbum(albumId, albumName, albumDescription, newAlbumPriceFormat, newAlbumStockFormat, fileName);

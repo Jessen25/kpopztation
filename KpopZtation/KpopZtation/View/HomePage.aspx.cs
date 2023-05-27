@@ -11,8 +11,11 @@ namespace KpopZtation.View
 {
     public partial class HomePage : System.Web.UI.Page
     {
+        protected bool isAdmin = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
             HttpCookie cookie = Request.Cookies["user"];
             if(cookie != null)
             {
@@ -20,8 +23,8 @@ namespace KpopZtation.View
 
                 if (role.Equals("Admin"))
                 {
-                    user_page.Visible = false;
-                    admin_page.Visible = true;
+                    isAdmin = true;
+                    insertButton.Visible = true;
                 } 
             }
         }

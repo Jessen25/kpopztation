@@ -29,18 +29,20 @@ namespace KpopZtation.View
             String warningText = CustomerController.loginStatus(email, pass);
             warningLabel.Text = warningText;
 
-            if (warningLabel.Text.Equals("Login Successfuly") && remember)
+            if (warningLabel.Text.Equals("Login Successfuly"))
             {
-                //Harusnya controller boleh return object, String by itself juga object sebenernya, cuma diskusi aja nanti
-                //String name = CustomerController.getName(email, pass);
-                //String role = CustomerController.getRole(email, pass);
                 Customer customer = CustomerController.getData(email, pass);
 
                 HttpCookie cookie = new HttpCookie("user");
                 cookie["Name"] = customer.CustomerName;
                 cookie["Role"] = customer.CustomerRole;
                 cookie["Email"] = customer.CustomerEmail;
-                cookie.Expires.AddMonths(1);
+
+                if (remember)
+                {
+                    cookie.Expires.AddMonths(1);
+                }
+
                 Response.Cookies.Add(cookie);
                 Response.Redirect("HomePage.aspx");
             }
