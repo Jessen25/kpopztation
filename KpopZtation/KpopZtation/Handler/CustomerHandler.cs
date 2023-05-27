@@ -26,5 +26,20 @@ namespace KpopZtation.Handler
         {
             return CustomerRepository.getData(email, pass);
         }
+
+        public static Customer getDataByEmail(String email)
+        {
+            return CustomerRepository.getDataByEmail(email);
+        }
+
+        public static void updateCustomer(Customer customerBeforeUpdate, String name, String email, String gender, String address, String password)
+        {
+            CustomerRepository.updateCustomer(customerBeforeUpdate, name, email, gender, address, password);
+        }
+
+        public static void deleteCustomer(Customer customer)
+        {
+            CustomerRepository.deleteCustomer(customer);
+        }
     }
 }

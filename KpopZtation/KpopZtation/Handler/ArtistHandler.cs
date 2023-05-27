@@ -33,5 +33,10 @@ namespace KpopZtation.Handler
             Artist artist = ArtistRepository.findArtist(id);
             ArtistRepository.deleteArtist(artist);
         }
+
+        public static Artist getArtist(String id)
+        {
+            return ArtistRepository.findArtist(id);
+        }
     }
 }

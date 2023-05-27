@@ -1,4 +1,5 @@
 ﻿using KpopZtation.Handler;
+using KpopZtation.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,6 +68,11 @@ namespace KpopZtation.Controller
         public static void deleteArtist(String id)
         {
             ArtistHandler.deleteArtist(id);
+        }
+
+        public static Artist getArtist(String id)
+        {
+            return ArtistHandler.getArtist(id);
         }
     }
 }
