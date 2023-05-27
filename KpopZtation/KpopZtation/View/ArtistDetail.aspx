@@ -50,7 +50,7 @@
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
 
-        <asp:Button ID="insertAlbumButton" runat="server" Text="Insert Album" OnClick="insertAlbumButton_Click" />
+        <asp:Button ID="insertAlbumButton" runat="server" Text="Insert Album" OnClick="insertAlbumButton_Click" Visible="false" />
         </div>
         
     </div>

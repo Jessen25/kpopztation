@@ -26,6 +26,7 @@ namespace KpopZtation.View
                     if(role == "Admin")
                     {
                         isAdmin = true;
+                        insertAlbumButton.Visible = true;
                     } 
                 }
             
