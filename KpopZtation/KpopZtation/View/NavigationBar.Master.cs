@@ -16,14 +16,27 @@ namespace KpopZtation.View
             if (!IsPostBack)
             {
                 HttpCookie cookie = Request.Cookies["user"];
-                if(cookie != null)
+                if (cookie != null)
                 {
                     String role = cookie["Role"].ToString();
 
                     if (role.Equals("Admin"))
                     {
                         cartButton.Visible = false;
+                        loginButton.Visible = false;
+                        registerButton.Visible = false;
+                    } else if (role.Equals("User"))
+                    {
+                        loginButton.Visible = false;
+                        registerButton.Visible = false;
                     }
+                }
+                else
+                {
+                    cartButton.Visible = false;
+                    transactionButton.Visible = false;
+                    updateProfileButton.Visible = false;
+                    logoutButton.Visible = false;
                 }
             }
 
@@ -51,7 +64,23 @@ namespace KpopZtation.View
 
         protected void logoutButton_Click(object sender, EventArgs e)
         {
-            // function logout
+            HttpCookie cookie = Request.Cookies["user"];
+
+            if(Request.Cookies["user"] != null)
+            {
+                Response.Cookies.Remove("user");
+                Response.Redirect("LoginPage.aspx");
+            }
+        }
+
+        protected void loginButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LoginPage.aspx");
+        }
+
+        protected void registerButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RegisterPage.aspx");
         }
     }
 }
