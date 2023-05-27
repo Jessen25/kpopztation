@@ -1,6 +1,7 @@
 ﻿using KpopZtation.Controller;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,10 +21,8 @@ namespace KpopZtation.View
                 if (role.Equals("Admin"))
                 {
                     user_page.Visible = false;
-                } else if (role.Equals("User"))
-                {
-                    admin_page.Visible = false;
-                }
+                    admin_page.Visible = true;
+                } 
             }
         }
 
@@ -47,6 +46,14 @@ namespace KpopZtation.View
 
             ArtistController.deleteArtist(id);
             Response.Redirect("HomePage.aspx");
+        }
+
+        protected void GridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            GridViewRow row = GridViewAdmin.Rows[e.NewSelectedIndex];
+            String artistId = row.Cells[0].Text.ToString();
+
+            Response.Redirect("~/View/ArtistDetail.aspx?ArtistId=" + artistId);
         }
     }
 }

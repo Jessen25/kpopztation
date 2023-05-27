@@ -2,6 +2,7 @@
 using KpopZtation.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -23,7 +24,7 @@ namespace KpopZtation.Controller
                 return "Name must be between 5 and 50 characters !";
             }
 
-            if (!email.Contains("@") && !email.Contains("."))
+            if (!email.Contains("@") || !email.Contains("."))
             {
                 return "Must contain @ and .";
             }
@@ -45,7 +46,7 @@ namespace KpopZtation.Controller
                 return "This email already used. Try with different email !";
             }
 
-            if (!address.EndsWith("Street"))
+            if (!address.ToLower().EndsWith("street"))
             {
                 return "Address must ends with 'Street' !";
             }
@@ -75,17 +76,89 @@ namespace KpopZtation.Controller
             return CustomerHandler.getData(email, pass).CustomerRole;
         }
 
+        public static Customer getData(String email, String pass)
+        {
+            return CustomerHandler.getData(email, pass);
+        }
+
         public static String loginStatus(String email, String pass)
         {
-            String user_email = CustomerHandler.getData(email, pass).CustomerEmail;
-            String user_pass = CustomerHandler.getData(email, pass).CustomerPassword;
+            //String user_email = CustomerHandler.getData(email, pass).CustomerEmail;
+            //String user_pass = CustomerHandler.getData(email, pass).CustomerPassword;
 
-            if(!email.Equals(user_email) || !pass.Equals(user_pass))
+            //if(!email.Equals(user_email) || !pass.Equals(user_pass))
+            //{
+            //    return "Email or Password is incorrect !";
+            //}
+
+            Customer customer = CustomerHandler.getData(email, pass);
+
+            if(customer == null)
             {
                 return "Email or Password is incorrect !";
             }
 
             return "Login Successfuly";
+        }
+
+
+        public static Customer getDataByEmail(String email) 
+        {
+            return CustomerHandler.getDataByEmail(email);
+        }
+
+        public static String updateCustomer(Customer customerBeforeUpdate, String name, String email, String gender, String address, String password)
+        {
+            if (name.Equals("") || password.Equals("") || email.Equals("") || gender.Equals("") || address.Equals(""))
+            {
+                return "Some credentials is missing !";
+            }
+
+            if (name.Length < 5 || name.Length > 50)
+            {
+                return "Name must be between 5 and 50 characters !";
+            }
+
+            if (!email.Contains("@") || !email.Contains("."))
+            {
+                return "Must contain @ and .";
+            }
+
+            else if (email.StartsWith("@") || email.EndsWith("@"))
+            {
+                return "@ cannot be the first/last letter";
+            }
+            else if (email.StartsWith(".") || email.EndsWith("."))
+            {
+                return ". cannot be the first/last letter";
+            }
+            else if (email.Contains("@.") || email.Contains(".@"))
+            {
+                return "@ and . cannot be side by side";
+            }
+
+            if (CustomerHandler.isEmailUnique(email).Equals(true) && email != customerBeforeUpdate.CustomerEmail)
+            {
+                return "This email already used. Try with different email !";
+            }
+
+            if (!address.ToLower().EndsWith("street"))
+            {
+                return "Address must ends with 'Street' !";
+            }
+
+            if (ValidateAlphanumeric(password) == false)
+            {
+                return "Password must alphanumeric !";
+            }
+
+            CustomerHandler.updateCustomer(customerBeforeUpdate, name, email, gender, address, password);
+            return "Update Successful";
+        }
+
+        public static void deleteCustomer(Customer customer)
+        {
+            CustomerHandler.deleteCustomer(customer);
         }
     }
 }

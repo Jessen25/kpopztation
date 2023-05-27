@@ -12,7 +12,11 @@ namespace KpopZtation.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            HttpCookie cookie = Request.Cookies["user"];
+            if (cookie != null)
+            {
+                Response.Redirect("HomePage.aspx");
+            }
         }
 
         protected void registerButton_Click(object sender, EventArgs e)

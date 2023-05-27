@@ -26,5 +26,27 @@ namespace KpopZtation.Repository
         {
             return db.Customers.Where(x => x.CustomerEmail.Equals(email) && x.CustomerPassword.Equals(pass)).FirstOrDefault();
         }
+
+        public static Customer getDataByEmail(String email)
+        {
+            return (db.Customers.Where(x => x.CustomerEmail == email)).FirstOrDefault();
+        }
+
+        public static void updateCustomer(Customer customerBeforeUpdate, String name, String email, String gender, String address, String password)
+        {
+            customerBeforeUpdate.CustomerName = name;
+            customerBeforeUpdate.CustomerEmail = email;
+            customerBeforeUpdate.CustomerGender = gender;
+            customerBeforeUpdate.CustomerAddress = address;
+            customerBeforeUpdate.CustomerPassword = password;
+
+            db.SaveChanges();
+        }
+
+        public static void deleteCustomer(Customer customer)
+        {
+            db.Customers.Remove(customer);
+            db.SaveChanges();
+        }
     }
 }

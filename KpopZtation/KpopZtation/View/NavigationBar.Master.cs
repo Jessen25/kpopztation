@@ -46,12 +46,15 @@ namespace KpopZtation.View
 
         protected void updateProfileButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect(""); // insert nama update profile page
+            Response.Redirect("~/View/UpdateProfile.aspx");
         }
 
         protected void logoutButton_Click(object sender, EventArgs e)
         {
-            // function logout
+            HttpCookie cookie = Request.Cookies["user"];
+            cookie.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Set(cookie);
+            Response.Redirect("~/View/LoginPage.aspx");
         }
     }
 }
