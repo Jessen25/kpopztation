@@ -15,6 +15,15 @@ namespace KpopZtation.View
     {
 
         /// <summary>
+        /// albumImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image albumImage;
+
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -94,15 +103,6 @@ namespace KpopZtation.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label5;
-
-        /// <summary>
-        /// albumImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image albumImage;
 
         /// <summary>
         /// albumImageUpload control.

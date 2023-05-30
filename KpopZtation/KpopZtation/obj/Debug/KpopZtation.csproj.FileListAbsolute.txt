@@ -186,3 +186,4 @@ C:\Users\Daniel\Desktop\development-merge\kpopztation\KpopZtation\KpopZtation\bi
 C:\Users\Daniel\Desktop\development-merge\kpopztation\KpopZtation\KpopZtation\obj\Debug\KpopZtation.csproj.CopyComplete
 C:\Users\Daniel\Desktop\development-merge\kpopztation\KpopZtation\KpopZtation\obj\Debug\KpopZtation.dll
 C:\Users\Daniel\Desktop\development-merge\kpopztation\KpopZtation\KpopZtation\obj\Debug\KpopZtation.pdb
+C:\Users\Daniel\Desktop\development-merge\kpopztation\KpopZtation\KpopZtation\obj\Debug\KpopZtation.csproj.AssemblyReference.cache

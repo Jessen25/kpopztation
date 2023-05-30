@@ -8,49 +8,36 @@
         <div style="display: flex; flex-direction: row;">
             <asp:Image ID="artistImage" runat="server" Width="100px" Height="100px"/><br>
             <div style="margin-left: 10px;" >
-                <asp:Label ID="artistIDLabel" runat="server" Text="Artist Id: "></asp:Label><br>
-                <asp:Label ID="artistNameLabel" runat="server" Text="Artist Name: "></asp:Label><br>
+                <asp:Label ID="artistNameLabel" runat="server" Text=""></asp:Label><br>
             </div>
         </div>
 
         <div>
-            <h2>Artist Albums</h2>
-
-            <asp:GridView ID="AlbumsGridView" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowUpdating="AlbumsGridView_RowUpdating" OnRowDeleting="AlbumsGridView_RowDeleting">
-                <Columns>
-                    <asp:BoundField DataField="AlbumId" HeaderText="AlbumId" SortExpression="AlbumId" />
-                    <asp:BoundField DataField="ArtistId" HeaderText="ArtistId" SortExpression="ArtistId" />
-                    <asp:BoundField DataField="AlbumName" HeaderText="AlbumName" SortExpression="AlbumName" />
-                    <asp:ImageField HeaderText="AlbumImage" DataImageUrlField="AlbumImage" ControlStyle-Height="120" ControlStyle-Width="140" >
-                    <ControlStyle Height="120px" Width="140px"></ControlStyle>
-                    </asp:ImageField>
-                    <asp:BoundField DataField="AlbumPrice" HeaderText="AlbumPrice" SortExpression="AlbumPrice" />
-                    <asp:BoundField DataField="AlbumStock" HeaderText="AlbumStock" SortExpression="AlbumStock" />
-                    <asp:BoundField DataField="AlbumDescription" HeaderText="AlbumDescription" SortExpression="AlbumDescription" />
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:Button runat="server" Text="Update" 
-                            Visible='<%# isAdmin %>' 
-                            CommandName="Update"/>
-                            <asp:Button runat="server" Text="Delete" 
-                            Visible='<%# isAdmin %>' 
-                            CommandName="Delete"/>
-                        </ItemTemplate> 
-                    </asp:TemplateField>
-                </Columns> 
-                <EditRowStyle BackColor="#2461BF" />
-                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#EFF3FB" />
-                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                <SortedDescendingHeaderStyle BackColor="#4870BE" />
-            </asp:GridView>
-
-        <asp:Button ID="insertAlbumButton" runat="server" Text="Insert Album" OnClick="insertAlbumButton_Click" Visible="false" />
+            <div style="display: flex; align-items: center; flex-direction: row">
+                <h2>Artist Albums</h2>
+                <asp:Button ID="insertAlbumButton" runat="server" Text="Insert Album" OnClick="insertAlbumButton_Click" Visible='false' style="margin-left: 10px"/>
+            </div>
+            <div class="albumContainer" style="width: 100%; height: 100%; display: flex; justify-content: space-evenly; flex-wrap: wrap;
+">
+                <asp:Repeater ID="albumRepeater" runat="server">
+                    <ItemTemplate>
+                        <div class="albumCardContainer" style="width: 47%; height:150px; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 2px solid black; margin-bottom: 20px">
+                            <div class="imageInfoContainer" style="display: flex; height: 90%; width: 97%; align-items: center; justify-content: space-evenly">
+                                <asp:Image ImageUrl='<%# Eval("AlbumImage") %>' runat="server" style="height: 90%; width: 120px;"/>
+                                <div class="albumInfoContainer" style="height: 80%; width:75%; display: flex; flex-direction: column; justify-content: space-between">
+                                    <h3 style="margin: 0"><%# Eval("AlbumName") %></h3>
+                                    <h4 style="margin: 0;">Rp.<%# Eval("AlbumPrice") %></h4>
+                                    <p style="margin: 0"><%# Eval("AlbumDescription") %></p>
+                                    <div class="buttonActionContainer" style="width:120px; flex-direction: row;">
+                                        <asp:Button ID="updateButton" runat="server" Text="Update" CommandArgument='<%# Eval("AlbumId") %>' OnCommand="updateButton_Command" Visible='<%# isAdmin %>' /> 
+                                        <asp:Button ID="deleteButton" runat="server" Text="Delete" CommandArgument='<%# Eval("AlbumId") %>' OnCommand="deleteButton_Command" Visible='<%# isAdmin %>' />
+                                    </div>
+                                </div>
+                            </div>                       
+                        </div>
+                    </ItemTemplate>
+              </asp:Repeater>
+            </div>
         </div>
         
     </div>
