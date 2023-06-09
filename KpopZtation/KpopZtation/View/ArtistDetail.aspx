@@ -17,11 +17,11 @@
                 <h2>Artist Albums</h2>
                 <asp:Button ID="insertAlbumButton" runat="server" Text="Insert Album" OnClick="insertAlbumButton_Click" Visible='false' style="margin-left: 10px"/>
             </div>
-            <div class="albumContainer" style="width: 100%; height: 100%; display: flex; justify-content: space-evenly; flex-wrap: wrap;
+            <div class="albumContainer" style="width: 100%; height: 100%; display: flex; justify-content: flex-start; flex-wrap: wrap;
 ">
                 <asp:Repeater ID="albumRepeater" runat="server">
                     <ItemTemplate>
-                        <div class="albumCardContainer" style="width: 47%; height:150px; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 2px solid black; margin-bottom: 20px">
+                        <div class="albumCardContainer" style="width: 47%; height:150px; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 2px solid black; margin-bottom: 20px; margin-right: 10px">
                             <div class="imageInfoContainer" style="display: flex; height: 90%; width: 97%; align-items: center; justify-content: space-evenly">
                                 <asp:Image ImageUrl='<%# Eval("AlbumImage") %>' runat="server" style="height: 90%; width: 120px;"/>
                                 <div class="albumInfoContainer" style="height: 80%; width:75%; display: flex; flex-direction: column; justify-content: space-between">

@@ -27,36 +27,30 @@ namespace KpopZtation.View
                     insertButton.Visible = true;
                 } 
             }
+
+            artistRepeater.DataSource = ArtistController.getAllArtist();
+            artistRepeater.DataBind();
         }
 
         protected void insertButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("InsertArtist.aspx");
+            Response.Redirect("~/View/InsertArtist.aspx");
         }
 
-        protected void GridViewAdmin_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        protected void updateButton_Command(object sender, CommandEventArgs e)
         {
-            GridViewRow row = GridViewAdmin.Rows[e.RowIndex];
-            String id = row.Cells[0].Text;
-
-            Response.Redirect("UpdateArtist.aspx?id=" + id);
+            Response.Redirect("~/View/UpdateArtist.aspx?ArtistId=" + e.CommandArgument.ToString());
         }
 
-        protected void GridViewAdmin_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
-            GridViewRow row = GridViewAdmin.Rows[e.RowIndex];
-            String id = row.Cells[0].Text;
-
-            ArtistController.deleteArtist(id);
-            Response.Redirect("HomePage.aspx");
+            ArtistController.deleteArtist(e.CommandArgument.ToString());
+            Response.Redirect("~/View/HomePage.aspx");
         }
 
-        protected void GridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        protected void selectButton_Command(object sender, CommandEventArgs e)
         {
-            GridViewRow row = GridViewAdmin.Rows[e.NewSelectedIndex];
-            String artistId = row.Cells[0].Text.ToString();
-
-            Response.Redirect("~/View/ArtistDetail.aspx?ArtistId=" + artistId);
+            Response.Redirect("~/View/ArtistDetail.aspx?ArtistId=" + e.CommandArgument.ToString());
         }
     }
 }

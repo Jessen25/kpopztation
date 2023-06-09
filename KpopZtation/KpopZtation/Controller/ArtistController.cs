@@ -74,5 +74,10 @@ namespace KpopZtation.Controller
         {
             return ArtistHandler.getArtist(id);
         }
+
+        public static List<Artist> getAllArtist()
+        {
+            return ArtistHandler.getAllArtist();
+        }
     }
 }

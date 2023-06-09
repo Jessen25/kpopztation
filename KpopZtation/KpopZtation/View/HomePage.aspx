@@ -1,42 +1,32 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/NavigationBar.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="KpopZtation.View.HomePage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/NavigationBar.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="KpopZtation.View.HomePage"  EnableEventValidation="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <h1>Home Page</h1>
 
     <div runat="server">
-        <asp:GridView ID="GridViewAdmin" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="ArtistId" DataSourceID="SqlDataSource2" OnRowUpdating="GridViewAdmin_RowUpdating" OnRowDeleting="GridViewAdmin_RowDeleting" OnSelectedIndexChanging="GridView_SelectedIndexChanging">
-            <AlternatingRowStyle BackColor="White" />
-            <Columns>
-                <asp:BoundField DataField="ArtistId" HeaderText="ArtistId" InsertVisible="False" ReadOnly="True" SortExpression="ArtistId" />
-                <asp:BoundField DataField="ArtistName" HeaderText="ArtistName" SortExpression="ArtistName" />
-                <asp:ImageField HeaderText="ArtistImage" DataImageUrlField="ArtistImage" ControlStyle-Height="120" ControlStyle-Width="140" >
-                <ControlStyle Height="120px" Width="140px"></ControlStyle>
-                </asp:ImageField>
-                <asp:TemplateField>
+        <div class="artistContainer" style="width: 100%; height: 100%; display: flex; justify-content: flex-start; flex-wrap: wrap;
+">
+                <asp:Repeater ID="artistRepeater" runat="server">
                     <ItemTemplate>
-                        <asp:Button runat="server" Text="Update" 
-                        Visible='<%# isAdmin %>' 
-                        CommandName="Update"/>
-                        <asp:Button runat="server" Text="Delete" 
-                        Visible='<%# isAdmin %>' 
-                        CommandName="Delete"/>
-                        <asp:Button runat="server" Text="Select" 
-                        CommandName="Select"/>
-                    </ItemTemplate> 
-                </asp:TemplateField>
-            </Columns>
-            <EditRowStyle BackColor="#2461BF" />
-            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#EFF3FB" />
-            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#F5F7FB" />
-            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-            <SortedDescendingCellStyle BackColor="#E9EBEF" />
-            <SortedDescendingHeaderStyle BackColor="#4870BE" />
-        </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Artist]"></asp:SqlDataSource>
+                        <div class="artistCardContainer" style="width: 180px; height:300px; display: flex; flex-direction: row; align-items: center; justify-content: center; border-radius: 10px; border: 2px solid black; margin-bottom: 20px; margin-right: 10px">
+                            <div class="imageInfoContainer" style="display: flex; flex-direction: column; gap: 50px">
+                                <div class="imageAndTitleContainer" style="display: flex; align-items: center; justify-content: center; flex-direction:column">
+                                    <asp:ImageButton ID="artistImage" runat="server" ImageUrl='<%# Eval("ArtistImage") %>' style="height: 90%; width: 120px;" OnCommand="selectButton_Command" CommandArgument='<%# Eval("ArtistId") %>'/>
+                                    <a href='<%# "ArtistDetail.aspx?ArtistId=" + Eval("ArtistId") %>'>
+                                        <h3 style="margin: 0; color: black; text-decoration:none"><%# Eval("ArtistName") %></h3>
+                                    </a>
+                                </div>
+                                <div class="artistInfoContainer" style="height: 80%; width:75%; display: flex; flex-direction: column; justify-content: space-between">
+                                    <div class="buttonActionContainer" style="width:120px; flex-direction: row;">
+                                        <asp:Button ID="updateButton" runat="server" Text="Update" CommandArgument='<%# Eval("ArtistId") %>' OnCommand="updateButton_Command" Visible='<%# isAdmin %>' />
+                                        <asp:Button ID="deleteButton" runat="server" Text="Delete" CommandArgument='<%# Eval("ArtistId") %>' OnCommand="deleteButton_Command" Visible='<%# isAdmin %>' />
+                                    </div>
+                                </div>
+                            </div>                       
+                        </div>
+                    </ItemTemplate>
+              </asp:Repeater>
+            </div>
         <asp:Button ID="insertButton" runat="server" Text="Insert" OnClick="insertButton_Click" Visible="false"/>
     </div>
 

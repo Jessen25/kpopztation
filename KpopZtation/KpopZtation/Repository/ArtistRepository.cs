@@ -40,5 +40,10 @@ namespace KpopZtation.Repository
             db.Artists.Remove(data);
             db.SaveChanges();
         }
+
+        public static List<Artist> getAllArtist()
+        {
+            return (db.Artists.ToList());
+        }
     }
 }
