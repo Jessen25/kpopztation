@@ -51,5 +51,11 @@ namespace KpopZtation.Repository
 
             db.SaveChanges();
         }
+
+        public static void updateStock(TransactionDetail detail, Album album)
+        {
+            album.AlbumStock = album.AlbumStock - detail.Qty;
+            db.SaveChanges();
+        }
     }
 }

@@ -37,6 +37,7 @@ namespace KpopZtation.View
                 cookie["Name"] = customer.CustomerName;
                 cookie["Role"] = customer.CustomerRole;
                 cookie["Email"] = customer.CustomerEmail;
+                cookie["ID"] = customer.CustomerId.ToString();
 
                 if (remember)
                 {

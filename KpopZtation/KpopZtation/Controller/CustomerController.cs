@@ -78,7 +78,7 @@ namespace KpopZtation.Controller
 
             Customer customer = CustomerHandler.getData(email, pass);
 
-            if(customer == null)
+            if (customer == null)
             {
                 return "Email or Password is incorrect !";
             }
@@ -87,7 +87,7 @@ namespace KpopZtation.Controller
         }
 
 
-        public static Customer getDataByEmail(String email) 
+        public static Customer getDataByEmail(String email)
         {
             return CustomerHandler.getDataByEmail(email);
         }
@@ -144,6 +144,11 @@ namespace KpopZtation.Controller
         public static void deleteCustomer(Customer customer)
         {
             CustomerHandler.deleteCustomer(customer);
+        }
+
+        public static Customer getDataById(int id)
+        {
+            return CustomerHandler.getDataById(id);
         }
     }
 }

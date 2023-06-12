@@ -32,6 +32,11 @@ namespace KpopZtation.Repository
             return (db.Customers.Where(x => x.CustomerEmail == email)).FirstOrDefault();
         }
 
+        public static Customer getDataById(int id)
+        {
+            return (db.Customers.Where(x => x.CustomerId == id)).FirstOrDefault();
+        }
+
         public static void updateCustomer(Customer customerBeforeUpdate, String name, String email, String gender, String address, String password)
         {
             customerBeforeUpdate.CustomerName = name;

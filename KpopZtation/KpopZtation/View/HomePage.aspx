@@ -4,8 +4,7 @@
     <h1>Home Page</h1>
 
     <div runat="server">
-        <div class="artistContainer" style="width: 100%; height: 100%; display: flex; justify-content: flex-start; flex-wrap: wrap;
-">
+        <div class="artistContainer" style="width: 100%; height: 100%; display: flex; justify-content: flex-start; flex-wrap: wrap;">
                 <asp:Repeater ID="artistRepeater" runat="server">
                     <ItemTemplate>
                         <div class="artistCardContainer" style="width: 180px; height:300px; display: flex; flex-direction: row; align-items: center; justify-content: center; border-radius: 10px; border: 2px solid black; margin-bottom: 20px; margin-right: 10px">
@@ -22,7 +21,7 @@
                                         <asp:Button ID="deleteButton" runat="server" Text="Delete" CommandArgument='<%# Eval("ArtistId") %>' OnCommand="deleteButton_Command" Visible='<%# isAdmin %>' />
                                     </div>
                                 </div>
-                            </div>                       
+                            </div>
                         </div>
                     </ItemTemplate>
               </asp:Repeater>

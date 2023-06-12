@@ -24,13 +24,13 @@ namespace KpopZtation.View
                 {
                     String role = cookie["Role"].ToString();
 
-                    if(role == "Admin")
+                    if (role == "Admin")
                     {
                         isAdmin = true;
                         insertAlbumButton.Visible = true;
                     }
                 }
-            
+
                 String artistId = Request["ArtistId"];
                 Artist artist = ArtistController.getArtist(artistId);
 
@@ -62,6 +62,10 @@ namespace KpopZtation.View
             Response.Redirect("~/View/ArtistDetail.aspx?ArtistId=" + Request["ArtistId"]);
         }
 
+        protected void selectButton_Command(object sender, CommandEventArgs e)
+        {
+            Response.Redirect("~/View/AlbumDetail.aspx?AlbumId=" + e.CommandArgument.ToString());
+        }
 
         //protected void AlbumsGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         //{

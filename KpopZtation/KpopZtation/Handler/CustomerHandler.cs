@@ -41,5 +41,9 @@ namespace KpopZtation.Handler
         {
             CustomerRepository.deleteCustomer(customer);
         }
+        public static Customer getDataById(int id)
+        {
+            return CustomerRepository.getDataById(id);
+        }
     }
 }

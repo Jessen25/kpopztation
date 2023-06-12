@@ -17,7 +17,7 @@ namespace KpopZtation.View
         {
 
             HttpCookie cookie = Request.Cookies["user"];
-            if(cookie != null)
+            if (cookie != null)
             {
                 String role = cookie["Role"].ToString();
 
@@ -25,7 +25,7 @@ namespace KpopZtation.View
                 {
                     isAdmin = true;
                     insertButton.Visible = true;
-                } 
+                }
             }
 
             artistRepeater.DataSource = ArtistController.getAllArtist();
