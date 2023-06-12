@@ -21,6 +21,7 @@ namespace KpopZtation.View
 
                 artistImage.ImageUrl = artistBefore.ArtistImage;
                 artistName.Text = artistBefore.ArtistName;
+                artistNameBox.Text = artistBefore.ArtistName;
             }
         }
 
