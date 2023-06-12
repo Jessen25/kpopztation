@@ -55,7 +55,16 @@ namespace KpopZtation.View
 
         protected void transactionButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect(""); // insert nama transaction page
+            HttpCookie cookie = Request.Cookies["user"];
+            String role = cookie["Role"].ToString();
+            if (role.Equals("Admin"))
+            {
+                Response.Redirect("TransactionReportPage.aspx");
+            }
+            else if (role.Equals("User"))
+            {
+                Response.Redirect("TransactionPage.aspx");
+            }
         }
 
         protected void updateProfileButton_Click(object sender, EventArgs e)
