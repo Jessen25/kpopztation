@@ -56,7 +56,7 @@ namespace KpopZtation.View
 
             String customerID = cookie["ID"];
             int albumID = int.Parse(Request.QueryString["AlbumID"]);
-            int quantity = int.Parse(QuantityBox.Text);
+            String quantity = QuantityBox.Text;
 
             String warningText = CartController.createCart(int.Parse(customerID), albumID, quantity);
             WarningLabel.Text = warningText;

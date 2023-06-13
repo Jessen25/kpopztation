@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using KpopZtation.Handler;
 using KpopZtation.Model;
@@ -10,11 +11,27 @@ namespace KpopZtation.Controller
 {
     public class CartController
     {
-        public static String createCart(int CustomerID, int AlbumID, int Quantity)
+        public static bool ValidateNumeric(String pass)
+        {
+            Regex regex = new Regex("(?=.*[0-9])");
+            return regex.IsMatch(pass);
+        }
+        public static String createCart(int CustomerID, int AlbumID, String quantity)
         {
             Cart SelectedCart = CartRepository.findCartbyAlbumID(CustomerID.ToString(), AlbumID.ToString());
             Album SelectedAlbum = AlbumRepository.getAlbumById(AlbumID.ToString());
 
+            if (quantity.Equals(""))
+            {
+                return "Quantity field must be filled !";
+            }
+
+            if (ValidateNumeric(quantity) == false)
+            {
+                return "Quantity must be a number !";
+            }   
+
+            int Quantity = int.Parse(quantity);
 
             if (SelectedCart == null)
             {
@@ -36,6 +53,7 @@ namespace KpopZtation.Controller
             }
 
             return "Inserted Successfuly !";
+
         }
         public static List<Cart> getCart(int id)
         {
