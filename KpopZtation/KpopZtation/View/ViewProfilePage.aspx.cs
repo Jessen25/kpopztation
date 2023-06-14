@@ -18,6 +18,13 @@ namespace KpopZtation.View
 
             if (cookie != null)
             {
+
+                String role = cookie["Role"].ToString();
+                if (role.Equals("Admin"))
+                {
+                    Response.Redirect("HomePage.aspx");
+                }
+
                 String customerID = cookie["ID"];
                 Customer customer = CustomerController.getDataById(int.Parse(customerID));
 
