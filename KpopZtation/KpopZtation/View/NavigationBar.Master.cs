@@ -38,6 +38,7 @@ namespace KpopZtation.View
                     transactionButton.Visible = false;
                     updateProfileButton.Visible = false;
                     logoutButton.Visible = false;
+                    viewProfileButton.Visible = false;
                 }
             }
 
@@ -50,7 +51,7 @@ namespace KpopZtation.View
 
         protected void cartButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect(""); // insert nama cart page
+            Response.Redirect("CartPage.aspx");
         }
 
         protected void transactionButton_Click(object sender, EventArgs e)
@@ -92,6 +93,11 @@ namespace KpopZtation.View
         protected void registerButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("RegisterPage.aspx");
+        }
+
+        protected void viewProfileButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewProfilePage.aspx");
         }
 
     }

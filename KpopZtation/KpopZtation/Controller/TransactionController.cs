@@ -10,6 +10,15 @@ namespace KpopZtation.Controller
     public class TransactionController
     {
 
+        public static String createHeader(int CustomerID)
+        {
+            return TransactionHandler.createHeader(CustomerID);
+        }
+
+        public static void createDetails(int TransactionID, List<Cart> cart)
+        {
+            TransactionHandler.createDetails(TransactionID, cart);
+        }
         public static List<TransactionDetail> getTransactionById(String transactionId)
         {
             return TransactionHandler.getTransactionById(transactionId);

@@ -145,5 +145,10 @@ namespace KpopZtation.Controller
         {
             CustomerHandler.deleteCustomer(customer);
         }
+
+        public static Customer getDataById(int id)
+        {
+            return CustomerHandler.getDataById(id);
+        }
     }
 }

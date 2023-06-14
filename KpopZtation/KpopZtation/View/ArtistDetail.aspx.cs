@@ -24,13 +24,13 @@ namespace KpopZtation.View
                 {
                     String role = cookie["Role"].ToString();
 
-                    if(role == "Admin")
+                    if (role == "Admin")
                     {
                         isAdmin = true;
                         insertAlbumButton.Visible = true;
                     }
                 }
-            
+
                 String artistId = Request["ArtistId"];
                 Artist artist = ArtistController.getArtist(artistId);
 
@@ -62,23 +62,9 @@ namespace KpopZtation.View
             Response.Redirect("~/View/ArtistDetail.aspx?ArtistId=" + Request["ArtistId"]);
         }
 
-
-        //protected void AlbumsGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        //{
-        //    GridViewRow row = AlbumsGridView.Rows[e.RowIndex];
-        //    String albumId = row.Cells[0].Text;
-
-        //    Response.Redirect("~/View/UpdateAlbum.aspx?AlbumId=" + albumId);
-        //}
-
-        //protected void AlbumsGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        //{
-        //    GridViewRow row = AlbumsGridView.Rows[e.RowIndex];
-        //    String albumId = row.Cells[0].Text;
-        //    String artistId = row.Cells[1].Text;
-
-        //    AlbumController.deleteAlbum(albumId);
-        //    Response.Redirect("~/View/ArtistDetail.aspx?ArtistId=" + artistId);
-        //}
+        protected void selectButton_Command(object sender, CommandEventArgs e)
+        {
+            Response.Redirect("~/View/AlbumDetail.aspx?AlbumId=" + e.CommandArgument.ToString());
+        }
     }
 }

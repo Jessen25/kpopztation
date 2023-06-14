@@ -15,6 +15,7 @@
         <asp:Button ID="logoutButton" runat="server" Text="Logout" style="margin-left: 10px" OnClick="logoutButton_Click"/>
         <asp:Button ID="loginButton" runat="server" Text="Login" style="margin-left: 10px" OnClick="loginButton_Click"/>
         <asp:Button ID="registerButton" runat="server" Text="Register" style="margin-left: 10px" OnClick="registerButton_Click"/>
+        <asp:Button ID="viewProfileButton" runat="server" Text="View Profile" style="margin-left: 10px" OnClick="viewProfileButton_Click"/>
 
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

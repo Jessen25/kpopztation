@@ -24,8 +24,7 @@ namespace KpopZtation.View
 
                 if(cookie != null)
                 {
-                    String[] res = cookie.Value.Split('=');
-                    String email = res[res.Length - 1];
+                    String email = cookie["Email"];
 
                     customerBeforeUpdate = CustomerController.getDataByEmail(email);
 

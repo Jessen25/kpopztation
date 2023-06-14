@@ -26,5 +26,23 @@ namespace KpopZtation.Repository
             return (db.Customers.Where(x => x.CustomerEmail.Equals(email))).FirstOrDefault();
         }
 
+        public static void createHeader(TransactionHeader header)
+        {
+            db.TransactionHeaders.Add(header);
+            db.SaveChanges();
+        }
+
+        public static void createDetails(TransactionDetail details)
+        {
+            db.TransactionDetails.Add(details);
+            db.SaveChanges();
+        }
+
+        public static TransactionDetail findDetailbyAlbumID(String TransactionId, String AlbumId)
+        {
+            int realId = int.Parse(TransactionId);
+            int realId2 = int.Parse(AlbumId);
+            return (from x in db.TransactionDetails where x.TransactionId == realId && x.AlbumId == realId2 select x).FirstOrDefault();
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace KpopZtation.View
         {
 
             HttpCookie cookie = Request.Cookies["user"];
-            if(cookie != null)
+            if (cookie != null)
             {
                 String role = cookie["Role"].ToString();
 

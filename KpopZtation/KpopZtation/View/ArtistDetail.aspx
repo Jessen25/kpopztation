@@ -23,9 +23,11 @@
                     <ItemTemplate>
                         <div class="albumCardContainer" style="width: 47%; height:150px; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 2px solid black; margin-bottom: 20px; margin-right: 10px">
                             <div class="imageInfoContainer" style="display: flex; height: 90%; width: 97%; align-items: center; justify-content: space-evenly">
-                                <asp:Image ImageUrl='<%# Eval("AlbumImage") %>' runat="server" style="height: 90%; width: 120px;"/>
+                                <asp:ImageButton ID="albumImage" runat="server" ImageUrl='<%# Eval("AlbumImage") %>' style="height: 90%; width: 120px;" OnCommand="selectButton_Command" CommandArgument='<%# Eval("AlbumId") %>'/>
                                 <div class="albumInfoContainer" style="height: 80%; width:75%; display: flex; flex-direction: column; justify-content: space-between">
-                                    <h3 style="margin: 0"><%# Eval("AlbumName") %></h3>
+                                    <a href='<%# "AlbumDetail.aspx?AlbumId=" + Eval("AlbumId") %>'>
+                                        <h3 style="margin: 0; color: black; text-decoration:none"><%# Eval("AlbumName") %></h3>
+                                    </a>
                                     <h4 style="margin: 0;">Rp.<%# Eval("AlbumPrice") %></h4>
                                     <p style="margin: 0"><%# Eval("AlbumDescription") %></p>
                                     <div class="buttonActionContainer" style="width:120px; flex-direction: row;">
@@ -41,8 +43,5 @@
         </div>
         
     </div>
-
-    
-
 
 </asp:Content>
