@@ -41,5 +41,21 @@ namespace KpopZtation.Handler
                 AlbumRepository.updateStock(SelectedTransaction, SelectedAlbum);
             }
         }
+
+        public static void deleteTransactionDetailbyAlbumId(String albumId)
+        {
+            TransactionRepository.deleteTransactionDetailbyAlbumId(albumId);
+        }
+
+        public static void deleteTransactionDetailbyArtistId(String artistId)
+        {
+            TransactionRepository.deleteTransactionDetailbyArtistId(artistId);
+        }
+
+        public static void deleteTransactionHeaderbyCustomerId(String customerId)
+        {
+            TransactionRepository.deleteTransactionHeaderbyCustomerId(customerId);
+        }
+
     }
 }

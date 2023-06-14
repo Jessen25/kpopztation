@@ -28,6 +28,20 @@ namespace KpopZtation.Controller
         {
             return TransactionHandler.getCustomerId(email);
         }
+        public static void deleteTransactionDetailbyAlbumId(String albumId)
+        {
+            TransactionHandler.deleteTransactionDetailbyAlbumId(albumId);
+        }
+
+        public static void deleteTransactionDetailbyArtistId(String artistId)
+        {
+            TransactionHandler.deleteTransactionDetailbyArtistId(artistId);
+        }
+
+        public static void deleteTransactionHeaderbyCustomerId(String customerId)
+        {
+            TransactionHandler.deleteTransactionHeaderbyCustomerId(customerId);
+        }
 
     }
 }

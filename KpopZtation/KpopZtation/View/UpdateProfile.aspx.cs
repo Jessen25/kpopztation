@@ -72,6 +72,7 @@ namespace KpopZtation.View
 
             if (confirmDeletion)
             {
+                TransactionController.deleteTransactionHeaderbyCustomerId(customerBeforeUpdate.CustomerId.ToString());
                 CustomerController.deleteCustomer(customerBeforeUpdate);
 
                 HttpCookie cookie = Request.Cookies["user"];

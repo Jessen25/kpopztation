@@ -44,6 +44,7 @@ namespace KpopZtation.View
 
         protected void deleteButton_Command(object sender, CommandEventArgs e)
         {
+            TransactionController.deleteTransactionDetailbyArtistId(e.CommandArgument.ToString());
             AlbumController.deleteAllAlbum(e.CommandArgument.ToString());
             ArtistController.deleteArtist(e.CommandArgument.ToString());
             Response.Redirect("~/View/HomePage.aspx");

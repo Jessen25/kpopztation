@@ -44,5 +44,32 @@ namespace KpopZtation.Repository
             int realId2 = int.Parse(AlbumId);
             return (from x in db.TransactionDetails where x.TransactionId == realId && x.AlbumId == realId2 select x).FirstOrDefault();
         }
+        public static void deleteTransactionDetailbyAlbumId(String albumId)
+        {
+            int actualId = int.Parse(albumId);
+            var removeTransactionDetail = db.TransactionDetails.Where(x => x.AlbumId == actualId).ToList();
+
+            db.TransactionDetails.RemoveRange(removeTransactionDetail);
+            db.SaveChanges();
+        }
+
+        public static void deleteTransactionDetailbyArtistId(String artistId)
+        {
+            int actualId = int.Parse(artistId);
+            var removeTransactionDetail = db.TransactionDetails.Where(x => x.Album.ArtistId == actualId).ToList();
+
+            db.TransactionDetails.RemoveRange(removeTransactionDetail);
+            db.SaveChanges();
+        }
+
+        public static void deleteTransactionHeaderbyCustomerId(String customerId)
+        {
+            int actualId = int.Parse(customerId);
+            var removeTransactionHeader = db.TransactionHeaders.Where(x => x.CustomerId == actualId).ToList();
+
+            db.TransactionHeaders.RemoveRange(removeTransactionHeader);
+            db.SaveChanges();
+        }
+
     }
 }
