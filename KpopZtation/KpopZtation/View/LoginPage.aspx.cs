@@ -42,7 +42,7 @@ namespace KpopZtation.View
 
                 if (remember)
                 {
-                    cookie.Expires.AddMonths(1);
+                    cookie.Expires = DateTime.Now.AddMonths(1);
                 }
 
                 Response.Cookies.Add(cookie);
