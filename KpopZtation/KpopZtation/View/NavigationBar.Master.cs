@@ -25,6 +25,7 @@ namespace KpopZtation.View
                         cartButton.Visible = false;
                         loginButton.Visible = false;
                         registerButton.Visible = false;
+                        viewProfileButton.Visible = false;
                     }
                     else if (role.Equals("User"))
                     {

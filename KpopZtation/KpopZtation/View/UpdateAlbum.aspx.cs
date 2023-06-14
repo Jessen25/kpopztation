@@ -18,6 +18,18 @@ namespace KpopZtation.View
         {
             if (!Page.IsPostBack)
             {
+                HttpCookie cookie = Request.Cookies["user"];
+
+                if (cookie != null)
+                {
+                    String role = cookie["Role"].ToString();
+
+                    if (!role.Equals("Admin"))
+                    {
+                        Response.Redirect("HomePage.aspx");
+                    }
+                }
+
                 String albumId = Request["AlbumId"];
                 albumBeforeUpdate = AlbumController.getAlbumById(albumId);
 

@@ -40,5 +40,10 @@ namespace KpopZtation.Handler
             Album album = AlbumRepository.getAlbumById(albumId);
             AlbumRepository.deleteAlbum(album);
         }
+
+        public static void deleteAllAlbum(String artistId)
+        {
+            AlbumRepository.deleteAllAlbum(artistId);
+        }
     }
 }

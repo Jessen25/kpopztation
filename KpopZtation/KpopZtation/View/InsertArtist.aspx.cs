@@ -12,7 +12,20 @@ namespace KpopZtation.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                HttpCookie cookie = Request.Cookies["user"];
 
+                if (cookie != null)
+                {
+                    String role = cookie["Role"].ToString();
+
+                    if (!role.Equals("Admin"))
+                    {
+                        Response.Redirect("HomePage.aspx");
+                    }
+                }
+            }
         }
 
         protected void insertButton_Click(object sender, EventArgs e)

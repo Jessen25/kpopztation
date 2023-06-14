@@ -149,5 +149,10 @@ namespace KpopZtation.Controller
             return AlbumHandler.getAlbumById(albumId);
         }
 
+        public static void deleteAllAlbum(String artistId)
+        {
+            AlbumHandler.deleteAllAlbum(artistId);
+        }
+
     }
 }
