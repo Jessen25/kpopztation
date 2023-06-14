@@ -28,6 +28,9 @@ namespace KpopZtation.View
                     {
                         Response.Redirect("HomePage.aspx");
                     }
+                } else
+                {
+                    Response.Redirect("HomePage.aspx");
                 }
 
                 String albumId = Request["AlbumId"];

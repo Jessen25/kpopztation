@@ -553,3 +553,34 @@ C:\Users\kenne\OneDrive\Documents\FINAL_PSD\kpopztation\KpopZtation\KpopZtation\
 C:\Users\kenne\OneDrive\Documents\FINAL_PSD\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportSource.dll
 C:\Users\kenne\OneDrive\Documents\FINAL_PSD\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.Shared.dll
 C:\Users\kenne\OneDrive\Documents\FINAL_PSD\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.Web.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\KpopZtation.dll.config
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\KpopZtation.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\KpopZtation.pdb
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportSource.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.Shared.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.Web.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\EntityFramework.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\EntityFramework.SqlServer.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\stdole.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\EntityFramework.xml
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\EntityFramework.SqlServer.xml
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\obj\Debug\KpopZtation.csproj.AssemblyReference.cache
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\obj\Debug\KpopZtation.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\obj\Debug\KpopZtation.csproj.CopyComplete
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\obj\Debug\KpopZtation.dll
+C:\Users\Daniel\Desktop\final final\kpopztation\KpopZtation\KpopZtation\obj\Debug\KpopZtation.pdb

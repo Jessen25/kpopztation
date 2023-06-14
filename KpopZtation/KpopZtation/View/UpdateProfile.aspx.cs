@@ -25,12 +25,6 @@ namespace KpopZtation.View
                 if(cookie != null)
                 {
                     String role = cookie["Role"].ToString();
-
-                    if (!role.Equals("Admin"))
-                    {
-                        Response.Redirect("HomePage.aspx");
-                    }
-
                     String email = cookie["Email"];
 
                     customerBeforeUpdate = CustomerController.getDataByEmail(email);
@@ -40,6 +34,9 @@ namespace KpopZtation.View
                     genderCheck.SelectedValue = customerBeforeUpdate.CustomerGender;
                     addressBox.Text = customerBeforeUpdate.CustomerAddress;
                     passwordBox.Text = customerBeforeUpdate.CustomerPassword;
+                } else
+                {
+                    Response.Redirect("HomePage.aspx");
                 }
             }
         }

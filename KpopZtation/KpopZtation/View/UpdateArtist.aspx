@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/NavigationBar.Master" AutoEventWireup="true" CodeBehind="UpdateArtist.aspx.cs" Inherits="KpopZtation.View.UpdateArtist" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+        
+        <h1>Update Artist</h1>
       <asp:Image ID="artistImage" runat="server" Width="220px" Height="220px"/><br />
       <asp:Label ID="artistName" runat="server" Text="" Font-Bold="true" Font-Size="Large"></asp:Label><br />
         

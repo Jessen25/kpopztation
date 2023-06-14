@@ -15,6 +15,22 @@ namespace KpopZtation.View
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            HttpCookie cookie = Request.Cookies["user"];
+
+            if (cookie != null)
+            {
+                String role = cookie["Role"].ToString();
+
+                if (!role.Equals("Admin"))
+                {
+                    Response.Redirect("HomePage.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("HomePage.aspx");
+            }
+
             ModelKpopZtationEntities db = Connect.getInstances();
 
             TransactionReport report = new TransactionReport();

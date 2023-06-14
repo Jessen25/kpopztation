@@ -16,21 +16,21 @@ namespace KpopZtation.View
 
             HttpCookie cookie = Request.Cookies["user"];
 
-            String role = cookie["Role"];
-            if (role.Equals("Admin"))
+            if (cookie != null)
+            {
+                String customerID = cookie["ID"];
+                Customer customer = CustomerController.getDataById(int.Parse(customerID));
+
+                UserNameText.Text = customer.CustomerName;
+                UserEmailText.Text = customer.CustomerEmail;
+                UserGenderText.Text = customer.CustomerGender;
+                UserAddressText.Text = customer.CustomerAddress;
+                UserRoleText.Text = customer.CustomerRole;
+            
+            } else
             {
                 Response.Redirect("HomePage.aspx");
             }
-            
-            String customerID = cookie["ID"];
-
-            Customer customer = CustomerController.getDataById(int.Parse(customerID));
-
-            UserNameText.Text = customer.CustomerName;
-            UserEmailText.Text = customer.CustomerEmail;
-            UserGenderText.Text = customer.CustomerGender;
-            UserAddressText.Text = customer.CustomerAddress;
-            UserRoleText.Text = customer.CustomerRole;
         }
 
         protected void UpdateProfileButton_Click(object sender, EventArgs e)

@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/View/NavigationBar.Master" CodeBehind="InsertArtist.aspx.cs" Inherits="KpopZtation.View.InsertArtist" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+    <h1>Insert Artist</h1>
     <asp:Label ID="Label1" runat="server" Text="Artist Name"></asp:Label> <br />
     <asp:TextBox ID="artistNameBox" runat="server"></asp:TextBox> <br /><br />
 
